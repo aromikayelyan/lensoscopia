@@ -149,7 +149,7 @@ export function ContactForm() {
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="e.g. Levon Arutyunyan"
+                placeholder="e.g. Levon Aronian"
                 className={inputClasses}
               />
             </div>
