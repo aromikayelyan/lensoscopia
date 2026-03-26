@@ -183,10 +183,14 @@ export function Footer() {
         <p className="text-sm text-pink-300/70">
           © {new Date().getFullYear()} Lensoscopia. All rights reserved.
         </p>
-        <div className="flex gap-6 text-xs text-pink-400 uppercase tracking-widest font-medium">
+        {/* <div className="flex gap-6 text-xs text-pink-400 uppercase tracking-widest font-medium">
            <a href="#" className="hover:text-pink-200 transition">Privacy Policy</a>
            <a href="#" className="hover:text-pink-200 transition">Terms of Service</a>
-        </div>
+        </div> */}
+        <div className="flex gap-6 text-xs text-pink-400 uppercase tracking-widest font-medium">
+   <a href="/en/privacy" className="hover:text-pink-200 transition">Privacy Policy</a>
+   <a href="/en/terms" className="hover:text-pink-200 transition">Terms of Service</a>
+</div>
       </div>
     </footer>
   );
