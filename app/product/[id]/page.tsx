@@ -83,6 +83,32 @@ const products = [
       material: "Etafilcon A"
     }
   },
+  {
+    id: "monthly",
+    name: "Lensoscopia Monthly Lenses",
+    price: "12,000 AMD",
+    full: "Идеальный выбор для активного образа жизни. Эти однодневные линзы обеспечивают максимальное увлажнение в течение всего дня благодаря технологии HydraClear.",
+    img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
+    specs: {
+      water: "58%",
+      bc: "8.5 mm",
+      dia: "14.2 mm",
+      material: "Etafilcon A"
+    }
+  },
+  {
+    id: "color",
+    name: "Lensoscopia Color Lenses",
+    price: "15,000 AMD",
+    full: "Enhance your appearance with natural and vibrant colors.",
+    img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30",
+    specs: {
+      water: "58%",
+      bc: "8.5 mm",
+      dia: "14.2 mm",
+      material: "Etafilcon A"
+    }
+  },
 ];
 
 export default async function ProductPage({ params }) {
@@ -168,11 +194,73 @@ export default async function ProductPage({ params }) {
       </section>
 
       {/* Простой футер специально для страницы товара */}
-      <footer className="mt-20 py-12 border-t border-pink-50 bg-pink-50/30">
-        <div className="max-w-6xl mx-auto px-6 text-center text-gray-500 text-sm">
-          <p>© 2026 Lensoscopia. Health and style for your eyes.</p>
-        </div>
-      </footer>
-    </main>
+      <footer className="bg-pink-900 text-white pt-16 pb-8 mt-20">
+  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+    
+    {/* 1. Brand & Description */}
+    <div className="space-y-4">
+      <h3 className="text-2xl font-bold tracking-tight text-white">
+        Lensoscopia
+      </h3>
+      <p className="text-pink-200/80 text-sm leading-relaxed max-w-xs">
+        Premium contact lenses curated for your comfort, style, and perfect vision. Based in Yerevan, serving your eyes worldwide.
+      </p>
+    </div>
+
+    {/* 2. Quick Links (Пустое место или добавь навигацию тут) */}
+    <div className="hidden md:block"></div>
+
+    {/* 3. Contact Info */}
+    <div className="space-y-6">
+      <h4 className="text-lg font-bold text-white uppercase tracking-wider">Contact Us</h4>
+      
+      {/* Ряд с иконками */}
+      <div className="flex flex-wrap gap-3">
+        {/* Phone */}
+        <a 
+          href="tel:+374XXXXXXXX" 
+          className="flex items-center gap-3 px-4 py-2 bg-pink-800 rounded-xl text-sm text-pink-100 hover:text-white hover:bg-pink-700 transition-all group shadow-inner"
+        >
+          <span>📞</span>
+          <span className="font-medium">+374 XX XXX XXX</span>
+        </a>
+
+        {/* Instagram - Теперь рядом и компактнее */}
+        <a 
+          href="https://instagram.com/lensoscopia" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-10 h-10 bg-pink-800 rounded-xl flex items-center justify-center text-pink-100 hover:text-white hover:bg-pink-700 transition-all shadow-inner"
+          title="Instagram"
+        >
+          <span className="text-lg">📸</span>
+        </a>
+
+        {/* Telegram (если надумаешь вернуть, просто раскомментируй) */}
+         <a 
+          href="https://t.me/your_username" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-10 h-10 bg-pink-800 rounded-xl flex items-center justify-center text-pink-100 hover:text-white hover:bg-pink-700 transition-all shadow-inner"
+        >
+          <span className="text-lg">✈️</span>
+        </a> 
+        
+      </div>
+    </div>
+  </div>
+
+  {/* Bottom Bar */}
+  <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-pink-800/50 flex flex-col md:flex-row justify-between items-center gap-6">
+    <p className="text-sm text-pink-300/70">
+      © {new Date().getFullYear()} Lensoscopia. All rights reserved.
+    </p>
+    <div className="flex gap-6 text-xs text-pink-400 uppercase tracking-widest font-medium">
+       <a href="/en/privacy" className="hover:text-pink-200 transition">Privacy Policy</a>
+       <a href="/en/terms" className="hover:text-pink-200 transition">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+   </main>
   );
 }

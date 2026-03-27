@@ -6,7 +6,7 @@ export default function Products() {
     name: "Daily Lenses",
     desc: "Soft daily lenses for maximum comfort.",
     full: "Perfect for everyday use. High oxygen permeability and hydration for all-day comfort.",
-    img: "https://images.unsplash.com/photo-1588776814546-ec7e2b6c4e7e",
+    img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
   },
   {
     id: "monthly",
@@ -57,14 +57,31 @@ export default function Products() {
                   View Product
                 </button> */}
                 <Link
-  href={`/product/${p.id}`}
-  className="block text-center bg-pink-600 text-white py-2 rounded-xl font-medium hover:bg-pink-700 transition"
->
-  View Product
-</Link>
+                  href={`/product/${p.id}`}
+                  className="block text-center bg-pink-600 text-white py-2 rounded-xl font-medium hover:bg-pink-700 transition"
+                >
+                  View Product
+                </Link>
               </div>
             </div>
           ))}
+        </div>
+        {/* --- Кнопка VIEW ALL --- */}
+        <div className="mt-20 text-center">
+          <Link
+            href={`/en/catalog`}
+            className="group inline-flex items-center gap-3 text-slate-900 font-black uppercase tracking-widest text-sm border-b-2 border-pink-500 pb-2 hover:text-pink-600 transition-all"
+          >
+            View All Collection
+            <svg 
+              className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300 text-pink-500" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>

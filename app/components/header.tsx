@@ -54,7 +54,6 @@ export default function Header() {
   const [lang, setLang] = useState("en");
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Следим за скроллом, чтобы менять фон хедера
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -65,29 +64,31 @@ export default function Header() {
 
   return (
     <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled 
-        ? "bg-white/80 backdrop-blur-md py-3 shadow-sm border-b border-pink-50" 
-        : "bg-transparent py-5"
+        ? "bg-white/90 backdrop-blur-xl py-4 shadow-sm border-b border-pink-50" 
+        : "bg-transparent py-6"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        {/* Logo */}
-        <div className="text-2xl font-black tracking-tighter">
-          <span className="bg-gradient-to-r from-pink-700 to-pink-500 bg-clip-text text-transparent italic">
-            LENSOSCOPIA
-          </span>
+        {/* Logo: lenoScopia */}
+        <div className={`text-2xl font-bold tracking-tight transition-colors duration-300 ${
+          isScrolled ? "text-slate-900" : "text-white"
+        }`}>
+          <span className="uppercase">lenso</span>
+          <span className="text-3xl text-white-500 font-black inline-block -translate-y-[1px] mx-[1px]">S</span>
+          <span className="uppercase">copia</span>
         </div>
 
-        {/* Navigation - Modern Minimalist */}
-        <nav className="hidden md:flex gap-10">
+        {/* Navigation */}
+        <nav className="hidden md:flex gap-12">
           {["Home", "Products", "Contact"].map((item) => (
             <a 
               key={item}
               href={item === "Home" ? "#" : `#${item.toLowerCase()}`} 
-              className={`text-sm font-bold uppercase tracking-widest transition-colors ${
-                isScrolled ? "text-slate-600 hover:text-pink-600" : "text-white/90 hover:text-white"
+              className={`text-[13px] font-bold uppercase tracking-[0.15em] transition-all hover:opacity-70 ${
+                isScrolled ? "text-slate-800" : "text-white"
               }`}
             >
               {item}
@@ -95,32 +96,40 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Action Zone: Lang & Mobile Menu */}
-        <div className="flex items-center gap-6">
+        {/* Action Zone: Lang */}
+        <div className="flex items-center gap-8">
           
-          {/* Language Switcher (Pill Style) */}
-          <div className={`flex p-1 rounded-xl border ${
-            isScrolled ? "bg-pink-50 border-pink-100" : "bg-white/10 border-white/20"
-          }`}>
-            {["en", "ru", "hy"].map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`px-3 py-1 rounded-lg text-[10px] font-black uppercase transition-all duration-200 ${
-                  lang === l 
-                    ? "bg-pink-600 text-white shadow-md shadow-pink-200" 
-                    : isScrolled ? "text-pink-400 hover:text-pink-600" : "text-white/70 hover:text-white"
-                }`}
-              >
-                {l}
-              </button>
+          {/* New Language Switcher (Minimalist) */}
+          <div className="flex items-center gap-3">
+            {["en", "ru", "hy"].map((l, index) => (
+              <div key={l} className="flex items-center">
+                <button
+                  onClick={() => setLang(l)}
+                  className={`text-[12px] font-extrabold uppercase transition-all ${
+                    lang === l 
+                      ? "text-pink-500 scale-110" 
+                      : isScrolled ? "text-slate-400 hover:text-slate-600" : "text-white/50 hover:text-white"
+                  }`}
+                >
+                  {l}
+                </button>
+                {index < 2 && (
+                  <span className={`ml-3 w-[1px] h-3 ${
+                    isScrolled ? "bg-slate-200" : "bg-white/20"
+                  }`} />
+                )}
+              </div>
             ))}
           </div>
 
-          {/* Кнопка "Начать" или иконка меню для мобилок */}
-          <button className={`md:hidden p-2 rounded-lg ${isScrolled ? "text-pink-600" : "text-white"}`}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isScrolled ? "M4 6h16M4 12h16M4 18h16" : "M4 6h16M4 12h16M4 18h7"} />
+          {/* Mobile Menu Icon */}
+          <button className={`md:hidden p-2 transition-colors ${
+            isScrolled ? "text-slate-900" : "text-white"
+          }`}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="15" y2="18"></line>
             </svg>
           </button>
         </div>
