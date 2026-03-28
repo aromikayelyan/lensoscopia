@@ -3,14 +3,31 @@
 import { useState } from "react";
 import Link from "next/link";
 
-// Имитация всех 12-15 товаров (вынеси это в отдельный JSON файл позже)
 const allProducts = [
-  { id: "daily", name: "Daily Comfort", category: "daily", price: "12,000 AMD", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
-  { id: "monthly", name: "Monthly Pro", category: "monthly", price: "15,000 AMD", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
-  { id: "color", name: "Ocean Blue", category: "color", price: "18,000 AMD", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
-  { id: "daily-2", name: "Hydra Fresh", category: "daily", price: "13,500 AMD", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
-  { id: "color-2", name: "Emerald Green", category: "color", price: "18,000 AMD", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
-  // ... и так далее до 15 штук
+  { id: "daily", name: "Daily Comfort", category: "daily", price: "12,000 AMD", desc: "Soft daily lenses for maximum comfort.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
+  { id: "monthly", name: "Monthly Pro", category: "monthly", price: "15,000 AMD", desc: "Long-term lenses with durability.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
+  { id: "color", name: "Ocean Blue", category: "color", price: "18,000 AMD", desc: "Stylish colored lenses.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
+  { id: "daily-2221", name: "Hydra Fresh", category: "daily", price: "13,500 AMD", desc: "High oxygen permeability lenses.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
+  { id: "color-264", name: "Emerald Green", category: "color", price: "18,000 AMD", desc: "Vibrant natural colors.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
+  { id: "daily2312", name: "Daily Comfort", category: "daily", price: "12,000 AMD", desc: "Soft daily lenses for maximum comfort.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
+  { id: "daily-2", name: "Hydra Fresh", category: "daily", price: "13,500 AMD", desc: "High oxygen permeability lenses.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
+  { id: "daily-active", name: "Active Day", category: "daily", price: "14,000 AMD", desc: "Perfect for sports and active lifestyle.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
+  { id: "daily-moist", name: "Aqua Moist", category: "daily", price: "12,500 AMD", desc: "Extra hydration for sensitive eyes.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
+  { id: "daily-ultra", name: "Ultra Vision", category: "daily", price: "16,000 AMD", desc: "Premium HD clarity for daily wear.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
+
+  // --- MONTHLY (Ежемесячные) ---
+  { id: "monthly-1", name: "Monthly Pro", category: "monthly", price: "15,000 AMD", desc: "Long-term lenses with durability.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
+  { id: "monthly-silicone", name: "Bio-Silicone", category: "monthly", price: "17,500 AMD", desc: "Advanced breathable silicone hydrogel.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
+  { id: "monthly-relax", name: "Night & Day", category: "monthly", price: "19,000 AMD", desc: "Safe for extended wear and relaxation.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
+  { id: "monthly-classic", name: "Balance 30", category: "monthly", price: "11,000 AMD", desc: "Affordable 30-day classic correction.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
+  { id: "monthly-hd", name: "Optic Plus", category: "monthly", price: "16,500 AMD", desc: "Superior focus for office work.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
+
+  // --- COLOR (Цветные) ---
+  { id: "color-231", name: "Ocean Blue", category: "color", price: "18,000 AMD", desc: "Stylish deep blue colored lenses.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
+  { id: "color-2", name: "Emerald Green", category: "color", price: "18,000 AMD", desc: "Vibrant natural green colors.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
+  { id: "color-honey", name: "Honey Amber", category: "color", price: "18,000 AMD", desc: "Warm and glowing amber shades.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
+  { id: "color-grey", name: "Pearl Grey", category: "color", price: "18,000 AMD", desc: "Elegant and sophisticated light grey.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
+
 ];
 
 const categories = [
@@ -23,7 +40,6 @@ const categories = [
 export default function CatalogPage() {
   const [activeTab, setActiveTab] = useState("all");
 
-  // Фильтрация товаров на лету
   const filteredProducts = activeTab === "all" 
     ? allProducts 
     : allProducts.filter(p => p.category === activeTab);
@@ -32,26 +48,21 @@ export default function CatalogPage() {
     <main className="min-h-screen bg-white pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Заголовок страницы */}
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tighter italic">
-            Full <span className="text-pink-600">Collection</span>
-          </h1>
-          <p className="text-slate-500 max-w-lg">
-            Explore our premium range of contact lenses. High quality and comfort for every eye.
-          </p>
-        </div>
+        {/* Заголовок — как в твоем Products */}
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-pink-700 mb-12">
+          Our Collection
+        </h2>
 
         {/* --- Фильтры (Tabs) --- */}
-        <div className="flex flex-wrap gap-4 mb-12 border-b border-pink-50 pb-8">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-8 py-3 rounded-2xl text-sm font-bold uppercase tracking-widest transition-all duration-300 ${
+              className={`px-6 py-2 rounded-xl font-medium transition-all ${
                 activeTab === cat.id 
-                ? "bg-pink-600 text-white shadow-lg shadow-pink-200" 
-                : "bg-pink-50 text-pink-400 hover:bg-pink-100"
+                ? "bg-pink-600 text-white shadow-md" 
+                : "bg-pink-50 text-pink-700 hover:bg-pink-100"
               }`}
             >
               {cat.label}
@@ -59,51 +70,45 @@ export default function CatalogPage() {
           ))}
         </div>
 
-        {/* --- Сетка товаров --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {/* --- Сетка товаров — ТОЧЬ В ТОЧЬ КАК ТЫ ХОТЕЛ --- */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {filteredProducts.map((p) => (
-            <div 
-              key={p.id} 
-              className="group bg-white rounded-[2rem] border border-pink-50 overflow-hidden hover:shadow-xl transition-all duration-500 flex flex-col"
+            <div
+              key={p.id}
+              className="group bg-white rounded-3xl shadow-md overflow-hidden hover:shadow-xl transition"
             >
-              {/* Image Box */}
-              <div className="relative h-60 overflow-hidden bg-rose-50">
-                <img 
-                  src={p.img} 
-                  alt={p.name} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              {/* Image */}
+              <div className="h-56 overflow-hidden">
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                 />
-                <div className="absolute bottom-4 left-4">
-                   <span className="bg-white/90 backdrop-blur px-3 py-1 rounded-lg text-[10px] font-black uppercase text-pink-600 border border-pink-100">
-                     {p.category}
-                   </span>
-                </div>
               </div>
 
-              {/* Info Box */}
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-pink-600 transition-colors uppercase italic tracking-tight">
+              {/* Content */}
+              <div className="p-6 text-left">
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">
                   {p.name}
                 </h3>
-                <p className="text-pink-600 font-black text-xl mb-6">
-                  {p.price}
-                </p>
-                
-                <Link 
+                <p className="text-gray-600 mb-2 text-sm">{p.desc}</p>
+                <p className="text-pink-600 font-bold text-lg mb-4">{p.price}</p>
+
+                <Link
                   href={`/product/${p.id}`}
-                  className="mt-auto w-full py-4 rounded-2xl border-2 border-slate-900 text-slate-900 font-bold uppercase text-xs tracking-widest hover:bg-slate-900 hover:text-white transition-all text-center active:scale-95"
+                  className="block text-center bg-pink-600 text-white py-2 rounded-xl font-medium hover:bg-pink-700 transition"
                 >
-                  View Details
+                  View Product
                 </Link>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Если ничего не найдено (на всякий случай) */}
+        {/* Состояние "Ничего не найдено" */}
         {filteredProducts.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-slate-400 font-medium italic">No products found in this category...</p>
+            <p className="text-gray-400">No lenses found...</p>
           </div>
         )}
       </div>
