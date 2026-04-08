@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 // import { notFound } from "next/navigation";
 
 // const products = [
@@ -68,7 +69,6 @@
 
 import { notFound } from "next/navigation";
 
-// Имитация базы данных (вынеси это в отдельный файл constants.ts или json)
 const products = [
   {
     id: "daily",
@@ -122,7 +122,6 @@ export default async function ProductPage({ params }) {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Хлебные крошки / Назад */}
       <div className="max-w-6xl mx-auto px-6 pt-10">
         <a href="/" className="text-pink-600 hover:text-pink-800 transition flex items-center gap-2 font-medium">
           ← Back to Catalog
