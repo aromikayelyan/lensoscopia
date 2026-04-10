@@ -4,29 +4,29 @@ import { useState } from "react";
 import Link from "next/link";
 
 const allProducts = [
-  { id: "daily", name: "Daily Comfort", category: "daily", price: "12,000 AMD", desc: "Soft daily lenses for maximum comfort.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
-  { id: "monthly", name: "Monthly Pro", category: "monthly", price: "15,000 AMD", desc: "Long-term lenses with durability.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
-  { id: "color", name: "Ocean Blue", category: "color", price: "18,000 AMD", desc: "Stylish colored lenses.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
-  { id: "daily-2221", name: "Hydra Fresh", category: "daily", price: "13,500 AMD", desc: "High oxygen permeability lenses.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
-  { id: "color-264", name: "Emerald Green", category: "color", price: "18,000 AMD", desc: "Vibrant natural colors.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
-  { id: "daily2312", name: "Daily Comfort", category: "daily", price: "12,000 AMD", desc: "Soft daily lenses for maximum comfort.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
-  { id: "daily-2", name: "Hydra Fresh", category: "daily", price: "13,500 AMD", desc: "High oxygen permeability lenses.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
-  { id: "daily-active", name: "Active Day", category: "daily", price: "14,000 AMD", desc: "Perfect for sports and active lifestyle.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
-  { id: "daily-moist", name: "Aqua Moist", category: "daily", price: "12,500 AMD", desc: "Extra hydration for sensitive eyes.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
-  { id: "daily-ultra", name: "Ultra Vision", category: "daily", price: "16,000 AMD", desc: "Premium HD clarity for daily wear.", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
+  { id: "daily", name: "Daily Comfort", category: "daily", price: "12,000 AMD", desc: "Soft daily lenses for maximum comfort.", img: "/lenses.png" },
+  { id: "monthly", name: "Monthly Pro", category: "monthly", price: "15,000 AMD", desc: "Long-term lenses with durability.", img: "/lenses.png" },
+  { id: "color", name: "Ocean Blue", category: "color", price: "18,000 AMD", desc: "Stylish colored lenses.", img: "/lenses.png" },
+  { id: "daily-2221", name: "Hydra Fresh", category: "daily", price: "13,500 AMD", desc: "High oxygen permeability lenses.", img: "/lenses.png" },
+  { id: "color-264", name: "Emerald Green", category: "color", price: "18,000 AMD", desc: "Vibrant natural colors.", img: "/lenses.png" },
+  { id: "daily2312", name: "Daily Comfort", category: "daily", price: "12,000 AMD", desc: "Soft daily lenses for maximum comfort.", img: "/lenses.png" },
+  { id: "daily-2", name: "Hydra Fresh", category: "daily", price: "13,500 AMD", desc: "High oxygen permeability lenses.", img: "/lenses.png" },
+  { id: "daily-active", name: "Active Day", category: "daily", price: "14,000 AMD", desc: "Perfect for sports and active lifestyle.", img: "/lenses.png" },
+  { id: "daily-moist", name: "Aqua Moist", category: "daily", price: "12,500 AMD", desc: "Extra hydration for sensitive eyes.", img: "/lenses.png" },
+  { id: "daily-ultra", name: "Ultra Vision", category: "daily", price: "16,000 AMD", desc: "Premium HD clarity for daily wear.", img: "/lenses.png" },
 
   // --- MONTHLY (Ежемесячные) ---
-  { id: "monthly-1", name: "Monthly Pro", category: "monthly", price: "15,000 AMD", desc: "Long-term lenses with durability.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
-  { id: "monthly-silicone", name: "Bio-Silicone", category: "monthly", price: "17,500 AMD", desc: "Advanced breathable silicone hydrogel.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
-  { id: "monthly-relax", name: "Night & Day", category: "monthly", price: "19,000 AMD", desc: "Safe for extended wear and relaxation.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
-  { id: "monthly-classic", name: "Balance 30", category: "monthly", price: "11,000 AMD", desc: "Affordable 30-day classic correction.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
-  { id: "monthly-hd", name: "Optic Plus", category: "monthly", price: "16,500 AMD", desc: "Superior focus for office work.", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db" },
+  { id: "monthly-1", name: "Monthly Pro", category: "monthly", price: "15,000 AMD", desc: "Long-term lenses with durability.", img: "/lenses.png" },
+  { id: "monthly-silicone", name: "Bio-Silicone", category: "monthly", price: "17,500 AMD", desc: "Advanced breathable silicone hydrogel.", img: "/lenses.png" },
+  { id: "monthly-relax", name: "Night & Day", category: "monthly", price: "19,000 AMD", desc: "Safe for extended wear and relaxation.", img: "/lenses.png" },
+  { id: "monthly-classic", name: "Balance 30", category: "monthly", price: "11,000 AMD", desc: "Affordable 30-day classic correction.", img: "/lenses.png" },
+  { id: "monthly-hd", name: "Optic Plus", category: "monthly", price: "16,500 AMD", desc: "Superior focus for office work.", img: "/lenses.png" },
 
   // --- COLOR (Цветные) ---
-  { id: "color-231", name: "Ocean Blue", category: "color", price: "18,000 AMD", desc: "Stylish deep blue colored lenses.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
-  { id: "color-2", name: "Emerald Green", category: "color", price: "18,000 AMD", desc: "Vibrant natural green colors.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
-  { id: "color-honey", name: "Honey Amber", category: "color", price: "18,000 AMD", desc: "Warm and glowing amber shades.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
-  { id: "color-grey", name: "Pearl Grey", category: "color", price: "18,000 AMD", desc: "Elegant and sophisticated light grey.", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30" },
+  { id: "color-231", name: "Ocean Blue", category: "color", price: "18,000 AMD", desc: "Stylish deep blue colored lenses.", img: "/lenses.png" },
+  { id: "color-2", name: "Emerald Green", category: "color", price: "18,000 AMD", desc: "Vibrant natural green colors.", img: "/lenses.png" },
+  { id: "color-honey", name: "Honey Amber", category: "color", price: "18,000 AMD", desc: "Warm and glowing amber shades.", img: "/lenses.png" },
+  { id: "color-grey", name: "Pearl Grey", category: "color", price: "18,000 AMD", desc: "Elegant and sophisticated light grey.", img: "/lenses.png" },
 
 ];
 

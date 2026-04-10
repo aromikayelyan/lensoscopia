@@ -1,72 +1,3 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
-// import { notFound } from "next/navigation";
-
-// const products = [
-//   {
-//     id: "daily",
-//     name: "Daily Lenses",
-//     desc: "Soft daily lenses for maximum comfort.",
-//     full: "Perfect for everyday use. High oxygen permeability and hydration for all-day comfort.",
-//     img: "https://images.unsplash.com/photo-1588776814546-ec7e2b6c4e7e",
-//   },
-//   {
-//     id: "monthly",
-//     name: "Monthly Lenses",
-//     desc: "Long-term lenses with durability.",
-//     full: "Designed for extended wear with durability and stable vision correction.",
-//     img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
-//   },
-//   {
-//     id: "color",
-//     name: "Color Lenses",
-//     desc: "Stylish colored lenses.",
-//     full: "Enhance your appearance with natural and vibrant colors.",
-//     img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30",
-//   },
-// ];
-
-// export default async function ProductPage({ params }) {
-//     const { id } = await params;
-//   const product = products.find((p) => p.id === id);
-
-//   if (!product) return notFound();
-
-//   return (
-//     <main className="min-h-screen bg-pink-50">
-//       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
-//         {/* Image */}
-//         <div>
-//           <img
-//             src={product.img}
-//             alt={product.name}
-//             className="w-full h-[400px] object-cover rounded-3xl shadow-lg"
-//           />
-//         </div>
-
-//         {/* Info */}
-//         <div>
-//           <h1 className="text-4xl font-bold text-pink-700 mb-4">
-//             {product.name}
-//           </h1>
-
-//           <p className="text-gray-600 mb-6">
-//             {product.full}
-//           </p>
-
-//           <button className="bg-pink-600 text-white px-8 py-3 rounded-xl hover:bg-pink-700 transition">
-//             Order via WhatsApp
-//           </button>
-//         </div>
-//       </div>
-
-//       {/* Footer */}
-//       <footer className="bg-pink-900 text-white py-10 text-center">
-//         © 2026 Lensoscopia
-//       </footer>
-//     </main>
-//   );
-// }
-
 import { notFound } from "next/navigation";
 
 const products = [
@@ -75,7 +6,7 @@ const products = [
     name: "Lensoscopia Daily Comfort",
     price: "12,000 AMD",
     full: "Идеальный выбор для активного образа жизни. Эти однодневные линзы обеспечивают максимальное увлажнение в течение всего дня благодаря технологии HydraClear.",
-    img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+    img: "/lenses.png",
     specs: {
       water: "58%",
       bc: "8.5 mm",
@@ -88,7 +19,7 @@ const products = [
     name: "Lensoscopia Monthly Lenses",
     price: "12,000 AMD",
     full: "Идеальный выбор для активного образа жизни. Эти однодневные линзы обеспечивают максимальное увлажнение в течение всего дня благодаря технологии HydraClear.",
-    img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
+    img: "/lenses.png",
     specs: {
       water: "58%",
       bc: "8.5 mm",
@@ -101,7 +32,7 @@ const products = [
     name: "Lensoscopia Color Lenses",
     price: "15,000 AMD",
     full: "Enhance your appearance with natural and vibrant colors.",
-    img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30",
+    img: "/lenses.png",
     specs: {
       water: "58%",
       bc: "8.5 mm",
@@ -117,7 +48,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
   if (!product) return notFound();
 
-  // Ссылка для WhatsApp (замени номер на свой)
+  // Ссылка для WhatsApp
   const whatsappUrl = `https://wa.me/37400000000?text=Hello! I want to order ${product.name}`;
 
   return (

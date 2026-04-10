@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "See the world clearly",
+    "subtitle": "Premium contact lenses for comfort, style and perfect vision.",
+    "viewProducts": "View Products",
+    "contact": "Contact Us"
+  },
+  "about": {
+    "title": "About Lensoscopia",
+    "text1": "Lensoscopia is focused on delivering high-quality contact lenses that combine comfort, safety and modern design.",
+    "text2": "Our lenses are designed for everyday life — whether you need them for work, style, or special occasions.",
+    "badge": "Premium Quality",
+    "features": {
+      "comfort": "Comfort",
+      "comfortDesc": "Soft and breathable materials",
+      "safety": "Safety",
+      "safetyDesc": "Certified quality lenses",
+      "style": "Style",
+      "styleDesc": "Natural & color options",
+      "vision": "Vision",
+      "visionDesc": "Sharp and clear sight"
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "view": "View Product",
+    "viewAll": "View All Collection",
+    "items": {
+      "daily": {
+        "name": "Daily Lenses",
+        "desc": "Soft daily lenses for maximum comfort."
+      },
+      "monthly": {
+        "name": "Monthly Lenses",
+        "desc": "Long-term lenses with durability."
+      },
+      "color": {
+        "name": "Color Lenses",
+        "desc": "Stylish colored lenses."
+      }
+    }
+  },
+  "whyUs": {
+    "title": "Why Choose Us",
+    "items": [
+      {
+        "title": "High Quality",
+        "desc": "We offer only certified and safe lenses"
+      },
+      {
+        "title": "Comfort",
+        "desc": "Soft materials for all-day wear"
+      },
+      {
+        "title": "Affordable",
+        "desc": "Best prices for premium products"
+      },
+      {
+        "title": "Fast Support",
+        "desc": "We respond quickly to every request"
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Support & Inquiry",
+    "title": "Let's Stay in Touch",
+    "highlight": "in Touch",
+    "subtitle": "Have questions about our lenses or need help with an order? Drop us a message, and our team will get back to you shortly.",
+    "left": {
+      "title": "Why Contact Us?",
+      "desc": "We provide personalized consultations to find the perfect lenses for your vision and comfort. Quick support via WhatsApp or email.",
+      "chat": "Prefer instant chat?",
+      "whatsapp": "Chat on WhatsApp"
+    },
+    "form": {
+      "success": "Thank you! Your request has been sent.",
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "message": "Message",
+      "placeholderName": "e.g. Levon Aronian",
+      "placeholderPhone": "+374 (__) __-__-__",
+      "placeholderMessage": "How can we help you?",
+      "button": "Send Request"
+    }
+  },
+  "footer": {
+    "desc": "Premium contact lenses curated for your comfort, style, and perfect vision. Based in Yerevan.",
+    "nav": "Navigation",
+    "contact": "Contact Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
+  
+

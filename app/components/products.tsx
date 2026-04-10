@@ -6,21 +6,21 @@ export default function Products() {
     name: "Daily Lenses",
     desc: "Soft daily lenses for maximum comfort.",
     full: "Perfect for everyday use. High oxygen permeability and hydration for all-day comfort.",
-    img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+    img: "/lenses.png",
   },
   {
     id: "monthly",
     name: "Monthly Lenses",
     desc: "Long-term lenses with durability.",
     full: "Designed for extended wear with durability and stable vision correction.",
-    img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
+    img: "/lenses.png",
   },
   {
     id: "color",
     name: "Color Lenses",
     desc: "Stylish colored lenses.",
     full: "Enhance your appearance with natural and vibrant colors.",
-    img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30",
+    img: "/lenses.png",
   },
   ];
 

@@ -5,7 +5,7 @@ export default function About() {
         {/* Image */}
         <div className="relative">
           <img
-            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
+            src="/lenses.png"
             alt="Contact lenses"
             className="rounded-3xl shadow-lg w-full h-[400px] object-cover"
           />
