@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 export default function Header() {
   const [lang, setLang] = useState('en')
   const [isScrolled, setIsScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
 
   // Проверяем, находимся ли мы на главной странице
@@ -16,7 +17,7 @@ export default function Header() {
     pathname === '/en' ||
     pathname === '/ru' ||
     pathname === '/am'
-  
+
   const cleanPath = pathname.replace(/^\/(en|ru|am)/, "");
 
   useEffect(() => {
@@ -33,11 +34,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
-        isTransparent
+      className={`fixed top-0 w-full z-[100] transition-all duration-500 ${isTransparent
           ? 'bg-transparent py-6'
           : 'bg-white/90 backdrop-blur-xl py-4 shadow-sm border-b border-pink-50'
-      }`}
+        }`}
     >
       <div className='max-w-7xl mx-auto px-6 flex items-center justify-between'>
         {/* Logo: lenoScopia */}
@@ -73,9 +73,8 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-[13px] font-bold uppercase tracking-[0.15em] transition-all hover:opacity-70 ${
-                isTransparent ? 'text-white' : 'text-slate-800'
-              }`}
+              className={`text-[13px] font-bold uppercase tracking-[0.15em] transition-all hover:opacity-70 ${isTransparent ? 'text-white' : 'text-slate-800'
+                }`}
             >
               {item.name}
             </Link>
@@ -87,7 +86,7 @@ export default function Header() {
           <div className='flex items-center gap-3'>
             {['en', 'ru', 'am'].map((l, index) => (
               <div key={l} className='flex items-center'>
-                 {/* <Link
+                {/* <Link
               key={l}
               href={`/${l}${cleanPath}`}
               className='text-xs font-bold uppercase'
@@ -96,21 +95,19 @@ export default function Header() {
             </Link> */}
                 <button
                   onClick={() => setLang(l)}
-                  className={`text-[12px] font-extrabold uppercase transition-all ${
-                    lang === l
+                  className={`text-[12px] font-extrabold uppercase transition-all ${lang === l
                       ? 'text-pink-500 scale-110'
                       : isTransparent
                         ? 'text-white/50 hover:text-white'
                         : 'text-slate-400 hover:text-slate-600'
-                  }`}
+                    }`}
                 >
                   {l}
                 </button>
                 {index < 2 && (
                   <span
-                    className={`ml-3 w-[1px] h-3 ${
-                      isTransparent ? 'bg-white/20' : 'bg-slate-200'
-                    }`}
+                    className={`ml-3 w-[1px] h-3 ${isTransparent ? 'bg-white/20' : 'bg-slate-200'
+                      }`}
                   />
                 )}
               </div>
@@ -119,9 +116,9 @@ export default function Header() {
 
           {/* Mobile Menu Icon */}
           <button
-            className={`md:hidden p-2 transition-colors ${
-              isTransparent ? 'text-white' : 'text-slate-900'
-            }`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            className={`md:hidden p-2 transition-colors ${isTransparent ? 'text-white' : 'text-slate-900'
+              }`}
           >
             <svg
               width='24'
@@ -139,6 +136,59 @@ export default function Header() {
           </button>
         </div>
       </div>
+      {menuOpen && (
+  <div className="md:hidden absolute top-full left-0 w-full z-[999] px-4 pt-4">
+    
+    <div className="
+      flex flex-col items-center gap-6 py-8
+      rounded-3xl
+      bg-white/80 backdrop-blur-2xl
+      border border-pink-100
+      shadow-2xl shadow-pink-100
+      transition-all duration-300
+    ">
+          <Link
+  href="/"
+  onClick={() => setMenuOpen(false)}
+  className="
+    w-[80%] text-center py-4 rounded-2xl
+    bg-pink-50/50 border border-pink-100
+    text-slate-800 font-semibold
+    hover:bg-pink-100 hover:text-pink-600
+    transition-all duration-300
+  "
+>
+  Home
+</Link>
+          <Link
+            href="#products"
+            onClick={() => setMenuOpen(false)}
+            className="
+              w-[80%] text-center py-4 rounded-2xl
+              bg-pink-50/50 border border-pink-100
+              text-slate-800 font-semibold
+              hover:bg-pink-100 hover:text-pink-600
+              transition-all duration-300
+            "
+          >
+            Products
+          </Link>
+          <Link
+            href="#contact"
+            onClick={() => setMenuOpen(false)}
+            className="
+              w-[80%] text-center py-4 rounded-2xl
+              bg-pink-50/50 border border-pink-100
+              text-slate-800 font-semibold
+              hover:bg-pink-100 hover:text-pink-600
+              transition-all duration-300
+            "
+          >
+            Contact
+          </Link>
+            </div>
+  </div>
+)}
     </header>
   )
 }
