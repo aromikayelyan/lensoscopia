@@ -1,32 +1,19 @@
+'use client'
+
+import { useDictionary } from "../lib/useDictonary";
+
 export default function WhyUs() {
-  const items = [
-    {
-      title: "High Quality",
-      desc: "We offer only certified and safe lenses",
-    },
-    {
-      title: "Comfort",
-      desc: "Soft materials for all-day wear",
-    },
-    {
-      title: "Affordable",
-      desc: "Best prices for premium products",
-    },
-    {
-      title: "Fast Support",
-      desc: "We respond quickly to every request",
-    },
-  ];
+  const dict = useDictionary();
 
   return (
     <section className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-pink-700 mb-12">
-          Why Choose Us
+          {dict.whyUs.title}
         </h2>
 
         <div className="grid md:grid-cols-4 gap-6">
-          {items.map((item, i) => (
+          {dict.whyUs.items.map((item, i) => (
             <div
               key={i}
               className="bg-pink-50 p-6 rounded-2xl text-center hover:shadow-lg transition"

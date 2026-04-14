@@ -1,4 +1,9 @@
+'use client'
+
+import { useDictionary } from "../lib/useDictonary";
+
 export function Footer() {
+  const dict = useDictionary();
   return (
     <footer className="bg-pink-900 text-white py-10 mt-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -9,7 +14,7 @@ export function Footer() {
             Lensoscopia
           </h3>
           <p className="text-pink-200/80 text-sm leading-relaxed max-w-xs">
-            Premium contact lenses curated for your comfort, style, and perfect vision. Based in Yerevan.
+            {dict.footer.desc}
           </p>
           <div className="flex gap-3 pt-1">
              <div className="w-8 h-8 rounded-full bg-pink-800 flex items-center justify-center hover:bg-pink-700 transition cursor-pointer text-xs">📸</div>
@@ -19,7 +24,7 @@ export function Footer() {
 
         {/* 2. Quick Links */}
         <div>
-          <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-wider">Navigation</h4>
+          <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-wider">{dict.footer.nav}</h4>
           <ul className="space-y-2">
             {["Home", "Products", "Contact"].map((item) => (
               <li key={item}>
@@ -34,7 +39,7 @@ export function Footer() {
 
         {/* 3. Contact Info */}
         <div className="space-y-4">
-          <h4 className="text-sm font-bold text-white uppercase tracking-wider">Contact Us</h4>
+          <h4 className="text-sm font-bold text-white uppercase tracking-wider">{dict.footer.contact}</h4>
           <div className="flex flex-col gap-3">
             <a href="tel:+374XXXXXXXX" className="flex items-center gap-3 text-sm text-pink-100 hover:text-white transition-all group">
               <span className="w-8 h-8 bg-pink-800 rounded-lg flex items-center justify-center group-hover:bg-pink-700 shadow-inner">📞</span>
@@ -58,8 +63,8 @@ export function Footer() {
           © {new Date().getFullYear()} Lensoscopia.
         </p>
         <div className="flex gap-6 text-[10px] text-pink-400 uppercase tracking-widest font-medium">
-           <a href="/en/privacy" className="hover:text-pink-200 transition">Privacy Policy</a>
-           <a href="/en/terms" className="hover:text-pink-200 transition">Terms of Service</a>
+           <a href="/en/privacy" className="hover:text-pink-200 transition">{dict.footer.privacy}</a>
+           <a href="/en/terms" className="hover:text-pink-200 transition">{dict.footer.terms}</a>
         </div>
       </div>
     </footer>

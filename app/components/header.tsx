@@ -4,21 +4,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { useDictionary } from '../lib/useDictonary'
 
 export default function Header() {
-  const [lang, setLang] = useState('en')
+  // const [lang, setLang] = useState('en')
   const [isScrolled, setIsScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const pathname = usePathname()
+  // const pathname = usePathname()
 
   // Проверяем, находимся ли мы на главной странице
-  const isHomePage =
-    pathname === '/' ||
-    pathname === '/en' ||
-    pathname === '/ru' ||
-    pathname === '/am'
+  // const isHomePage =
+  //   pathname === '/' ||
+  //   pathname === '/en' ||
+  //   pathname === '/ru' ||
+  //   pathname === '/am'
 
-  const cleanPath = pathname.replace(/^\/(en|ru|am)/, "");
+  const dict = useDictionary();
+  const pathname = usePathname()
+  const cleanPath = pathname.replace(/^\/(en|ru|am)/, "")
+  const isHomePage = /^\/(en|ru|am)$/.test(pathname)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,8 +39,8 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 w-full z-[100] transition-all duration-500 ${isTransparent
-          ? 'bg-transparent py-6'
-          : 'bg-white/90 backdrop-blur-xl py-4 shadow-sm border-b border-pink-50'
+        ? 'bg-transparent py-6'
+        : 'bg-white/90 backdrop-blur-xl py-4 shadow-sm border-b border-pink-50'
         }`}
     >
       <div className='max-w-7xl mx-auto px-6 flex items-center justify-between'>
@@ -66,9 +70,9 @@ export default function Header() {
         {/* Navigation */}
         <nav className='hidden md:flex gap-12'>
           {[
-            { name: 'Home', href: '/' },
-            { name: 'Products', href: '#products' },
-            { name: 'Contact', href: '#contact' },
+            { name: dict.nav.home, href: '/' },
+            { name: dict.nav.products, href: '#products' },
+            { name: dict.nav.contact, href: '#contact' },
           ].map(item => (
             <Link
               key={item.name}
@@ -84,15 +88,8 @@ export default function Header() {
         <div className='flex items-center gap-8'>
           {/* Language Switcher */}
           <div className='flex items-center gap-3'>
-            {['en', 'ru', 'am'].map((l, index) => (
+            {/* {['en', 'ru', 'am'].map((l, index) => (
               <div key={l} className='flex items-center'>
-                {/* <Link
-              key={l}
-              href={`/${l}${cleanPath}`}
-              className='text-xs font-bold uppercase'
-            >
-              {l}
-            </Link> */}
                 <button
                   onClick={() => setLang(l)}
                   className={`text-[12px] font-extrabold uppercase transition-all ${lang === l
@@ -110,6 +107,19 @@ export default function Header() {
                       }`}
                   />
                 )}
+              </div>
+            ))} */}
+            {['en', 'ru', 'am'].map((l, index) => (
+              <div key={l} className="flex items-center">
+                <Link
+                  href={`/${l}${cleanPath}`}
+                  className={`text-[12px] font-extrabold uppercase ${pathname.startsWith(`/${l}`)
+                      ? "text-pink-500 scale-110"
+                      : "text-slate-400"
+                    }`}
+                >
+                  {l}
+                </Link>
               </div>
             ))}
           </div>
@@ -137,9 +147,9 @@ export default function Header() {
         </div>
       </div>
       {menuOpen && (
-  <div className="md:hidden absolute top-full left-0 w-full z-[999] px-4 pt-4">
-    
-    <div className="
+        <div className="md:hidden absolute top-full left-0 w-full z-[999] px-4 pt-4">
+
+          <div className="
       flex flex-col items-center gap-6 py-8
       rounded-3xl
       bg-white/80 backdrop-blur-2xl
@@ -147,48 +157,48 @@ export default function Header() {
       shadow-2xl shadow-pink-100
       transition-all duration-300
     ">
-          <Link
-  href="/"
-  onClick={() => setMenuOpen(false)}
-  className="
+            <Link
+              href="/"
+              onClick={() => setMenuOpen(false)}
+              className="
     w-[80%] text-center py-4 rounded-2xl
     bg-pink-50/50 border border-pink-100
     text-slate-800 font-semibold
     hover:bg-pink-100 hover:text-pink-600
     transition-all duration-300
   "
->
-  Home
-</Link>
-          <Link
-            href="#products"
-            onClick={() => setMenuOpen(false)}
-            className="
+            >
+              Home
+            </Link>
+            <Link
+              href="#products"
+              onClick={() => setMenuOpen(false)}
+              className="
               w-[80%] text-center py-4 rounded-2xl
               bg-pink-50/50 border border-pink-100
               text-slate-800 font-semibold
               hover:bg-pink-100 hover:text-pink-600
               transition-all duration-300
             "
-          >
-            Products
-          </Link>
-          <Link
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="
+            >
+              Products
+            </Link>
+            <Link
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="
               w-[80%] text-center py-4 rounded-2xl
               bg-pink-50/50 border border-pink-100
               text-slate-800 font-semibold
               hover:bg-pink-100 hover:text-pink-600
               transition-all duration-300
             "
-          >
-            Contact
-          </Link>
-            </div>
-  </div>
-)}
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

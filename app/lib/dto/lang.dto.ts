@@ -1,4 +1,7 @@
+import { ReactNode } from "react";
+
 export interface Lang {
+  lang: string;
   nav: {
     home: string;
     products: string;
@@ -6,6 +9,7 @@ export interface Lang {
   };
 
   hero: {
+    ctaShop: ReactNode;
     title: string;
     subtitle: string;
     viewProducts: string;

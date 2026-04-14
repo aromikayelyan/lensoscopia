@@ -1,4 +1,11 @@
+'use client'
+import { useDictionary } from "../lib/useDictonary";
+
+
+
+
 export default function Hero() {
+  const dict = useDictionary();
   return (
     <section className="relative w-full h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
       {/* Background */}
@@ -10,10 +17,10 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-2xl px-6">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          See the world clearly
+          {dict.hero.title}
         </h1>
         <p className="text-lg md:text-xl mb-8 text-pink-100">
-          Premium contact lenses for comfort, style and perfect vision.
+          {dict.hero.subtitle}
         </p>
 
         {/* Buttons */}
@@ -22,14 +29,14 @@ export default function Hero() {
             href="#products"
             className="bg-white text-pink-700 px-8 py-3 rounded-xl font-semibold hover:bg-pink-100 transition"
           >
-            View Products
+            {dict.hero.viewProducts}
           </a>
 
           <a
             href="#contact"
             className="border border-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-pink-700 transition"
           >
-            Contact Us
+            {dict.hero.contact}
           </a>
         </div>
       </div>

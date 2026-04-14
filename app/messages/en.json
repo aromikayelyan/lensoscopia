@@ -1,4 +1,5 @@
-{
+{ 
+  "lang": "en",
   "nav": {
     "home": "Home",
     "products": "Products",
@@ -68,7 +69,7 @@
   },
   "contact": {
     "badge": "Support & Inquiry",
-    "title": "Let's Stay in Touch",
+    "title": "Let's Stay",
     "highlight": "in Touch",
     "subtitle": "Have questions about our lenses or need help with an order? Drop us a message, and our team will get back to you shortly.",
     "left": {
@@ -78,7 +79,7 @@
       "whatsapp": "Chat on WhatsApp"
     },
     "form": {
-      "success": "Thank you! Your request has been sent.",
+      "success": "✓ Thank you! Your request has been sent.",
       "name": "Full Name",
       "phone": "Phone Number",
       "message": "Message",
