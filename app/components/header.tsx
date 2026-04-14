@@ -85,7 +85,7 @@ export default function Header() {
           ))}
         </nav>
         {/* Action Zone: Lang */}
-        <div className='flex items-center gap-8'>
+        <div className='flex items-center gap-8' style={{ width: '118px' }}>
           {/* Language Switcher */}
           <div className='flex items-center gap-3'>
             {/* {['en', 'ru', 'am'].map((l, index) => (
